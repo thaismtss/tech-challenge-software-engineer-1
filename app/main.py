@@ -20,7 +20,7 @@ async def get_distribution():
 
 
 @app.get("/people/{cpf_without_pountuation}")
-async def get_people_cpf(cpf_without_pountuation):
+async def get_people_cpf(cpf_without_pountuation: int):
     return domain.get_people(cpf_without_pountuation)
 
 

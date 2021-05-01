@@ -24,9 +24,12 @@ def gender_distribution():
 
 
 def get_people(cpf_without_pountuation):
+    cpf = str(cpf_without_pountuation).zfill(11)
+    cpf_formated = f"{cpf[:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}"
     people_df["cpf"].apply(str)
-    result = people_df.query(f"cpf == '{cpf_without_pountuation}'").to_json(orient="table")
+    result = people_df.query(f"cpf == '{cpf_formated}'").to_json(orient="table")
     parsed = json.loads(result)
+    print(cpf_formated)
     return parsed.get("data")
 
 

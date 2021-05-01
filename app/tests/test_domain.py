@@ -23,9 +23,8 @@ def test_get_distribution():
 
 
 def test_get_people():
-    people = get_people('957.474.484-12')
-    for name in people:
-        assert name.get('nome') == 'Carolina Bárbara Vieira'
+    people = get_people(95747448412)
+    assert people == 'Carolina Bárbara Vieira'
 
 
 def test_blood_type():
